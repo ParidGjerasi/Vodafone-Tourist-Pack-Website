@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+backend/target/
+backend/.idea/
+backend/build/
+backend/.gradle/
+backend/*.iml
+backend/*.class
+backend/src/main/resources/application.properties
