@@ -15,7 +15,7 @@ Public, read-only showcase of a Next.js frontend for Vodafone-style tourist pack
 ## Run locally
 npm install
 npm run dev
-# open http://localhost:3000/tourists-pack-header and /fix-tv
+# open http://localhost:3000/
 
 ## License
 This repo is public for portfolio viewing only. See LICENSE.
