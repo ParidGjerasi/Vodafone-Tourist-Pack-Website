@@ -1,19 +1,21 @@
-## Getting Started
+# Vodafone Tourist Pack Website
 
-Ensure that Node.js version 20 or higher is installed on your machine. You can download it from [Node.js Official Website](https://nodejs.org/).
+Public, read-only showcase of a Next.js frontend for Vodafone-style tourist packs and Fix & TV bundles.
 
-### Running the Development Server
+## Features
+- Tourist Pack page (background image, hero, package cards, Activate modal)
+- Fix & TV page (3 bundles, active state)
+- Polished “Back to Top” button
+- Responsive layout (mobile friendly)
 
-To start the development server, use one of the following commands:
+## Tech
+- Frontend: Next.js (React), TypeScript, plain CSS
+- Planned Backend: Java Spring Boot (REST)
 
-```bash
+## Run locally
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# open http://localhost:3000/tourists-pack-header and /fix-tv
 
-Once the server is running, open your browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+## License
+This repo is public for portfolio viewing only. See LICENSE.
