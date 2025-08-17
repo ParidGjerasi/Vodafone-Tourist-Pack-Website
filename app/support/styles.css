@@ -1,0 +1,182 @@
+.page.support-page {
+  background-image: url('/assets/mali.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.support-container {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.support-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.support-title {
+  font-size: 2rem;
+  color: #e53e3e;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.support-description {
+  font-size: 1.1rem;
+  color: #333; 
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contact-box {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.contact-box h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.contact-options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact-label {
+  color: #e53e3e;
+}
+
+.phone-number {
+  color: #e53e3e;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.email-link {
+  color: #e53e3e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.email-link:hover {
+  background-color: #fee2e2;
+  text-decoration: underline;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.email-button {
+  background-color: #3e78e5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(229, 62, 62, 0.4);
+}
+
+.email-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 62, 62, 0.6);
+}
+
+.call-button {
+  background-color: #38a169;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(56, 161, 105, 0.4);
+}
+
+.call-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 161, 105, 0.6);
+}
+
+.support-footer-text {
+  font-size: 0.95rem;
+  color: #666; 
+  font-style: italic;
+}
+
+.back-button-container {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.back-button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  background-color: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #4b5563;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .support-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .support-title {
+    font-size: 1.5rem;
+  }
+  
+  .contact-options {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .email-button,
+  .call-button {
+    width: 100%;
+    max-width: 250px;
+  }
+}

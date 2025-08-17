@@ -1,8 +1,8 @@
 const footerLinks = {
   company: [
     { href: "/about", label: "About Us" },
-    { href: "/careers", label: "Careers" },
-    { href: "/news", label: "News" },
+    { href: "https://careers.vodafone.com/albania/", label: "Careers" },
+    { href: "https://www.vodafone.al/per-median/lajmerime/", label: "News" },
   ],
   services: [
     { href: "/packages", label: "Packages" },
@@ -10,14 +10,14 @@ const footerLinks = {
     { href: "/internet", label: "Internet" },
   ],
   support: [
-    { href: "/support", label: "Help Center" },
+    { href: "https://www.vodafone.al/suport/", label: "Help Center" },
     { href: "/contact", label: "Contact" },
-    { href: "/faq", label: "FAQ" },
+    { href: "https://www.vodafone.al/keshilla-per-internetin/", label: "FAQ" },
   ],
   contact: [
-    { href: "/whatsapp", label: "WhatsApp" },
+    { href: "https://api.whatsapp.com/send?phone=355699000140", label: "WhatsApp" },
     { href: "/email", label: "Email" },
-    { href: "/phone", label: "Phone" },
+    { href: "https://www.vodafone.al/en/business/na-kontaktoni/", label: "Phone" },
   ],
 };
 const socialLinks = [

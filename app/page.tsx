@@ -1,7 +1,9 @@
+"use client";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import PackCard from "../components/PackCard";
+import PacketList from "../components/PacketList";
 import { ActivationStep } from "@/components/ActivationStep";
+import './styles.css'; 
 
 const activationSteps = [
   {
@@ -19,28 +21,25 @@ const activationSteps = [
     title: "Start Using",
     text: "Your pack is ready to use immediately",
   },
+  {
+   number: "4",
+   title: "Enjoy Benefits",
+   text: "Access all features and stay connected throughout your trip",
+ }
 ];
 
-const packs = [
-  {
-    title: "Basic Pack",
-    subtitle: "Perfect for short visits",
-    price: "500 L",
-    duration: "3 days",
-    features: ["2GB Data", "50 Minutes", "100 SMS"],
-  },
-  {
-    title: "Standard Pack",
-    subtitle: "Great for week-long stays",
-    price: "1000 L",
-    duration: "7 days",
-    features: ["5GB Data", "100 Minutes", "Unlimited SMS"],
-  },
-];
+const DummyPacketList = () => {
+  // your logic here
+  return (
+    <div>
+      {/* Render your packet list here */}
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
-    <div className="page">
+    <div className="page main-page">   
       <Header />
 
       <main className="main">
@@ -53,21 +52,9 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* Packs Section */}
+        {/* Live Database Packs Section */}
         <section>
-          <h2 className="section-title">Tourist Packs</h2>
-          <div className="pack-grid">
-            {packs.map((pack, index) => (
-              <PackCard
-                key={index}
-                title={pack.title}
-                subtitle={pack.subtitle}
-                price={pack.price}
-                duration={pack.duration}
-                features={pack.features}
-              />
-            ))}
-          </div>
+          <PacketList />
         </section>
 
         {/* How to Activate Section */}

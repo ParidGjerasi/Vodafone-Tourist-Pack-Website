@@ -1,0 +1,127 @@
+/* Scope everything to the About page to prevent global bleed */
+.about-page .page {
+  padding: 3rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.about-page .main {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Keep the big title white over the background */
+.about-page .background-about-page ~ .page .section-title {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  margin-bottom: 3rem;
+  color: white;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Make all text inside boxes red */
+.about-page .about-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  color: #e60000; /* text in the box is red */
+}
+
+.about-page .about-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e60000, #ff4444, #e60000);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.about-page .about-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.about-page .about-box:hover::before {
+  opacity: 1;
+}
+
+/* Fixed full-viewport background layer */
+.about-page .background-about-page {
+  background-image: url("/assets/berat.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.about-page .background-about-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .about-page .page {
+    padding: 2rem 1rem;
+  }
+
+  .about-page .main {
+    max-width: 100%;
+  }
+
+  .about-page .section-title {
+    margin-bottom: 2rem;
+  }
+
+  .about-page .about-box {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ensure only this page's background is affected */
+  .about-page .background-about-page {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .page {
+    padding: 1.5rem 1rem;
+  }
+
+  .about-page .about-box {
+    padding: 1.25rem;
+  }
+}

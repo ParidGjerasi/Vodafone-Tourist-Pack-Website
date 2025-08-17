@@ -1,0 +1,203 @@
+.packages-section {
+  margin: 4rem 0;
+}
+
+.packages-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.package-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+
+  /* Added for button alignment */
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.package-card.featured {
+  border: 3px solid #e60000;
+  transform: scale(1.05);
+}
+
+/* Active package styling */
+.package-card.active {
+  border: 3px solid #28a745;
+  background: #f8fff8;
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.2);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e60000;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e60000;
+  margin-bottom: 1.5rem;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 2rem;
+  text-align: left;
+
+  /* Added for button alignment */
+  flex-grow: 1;
+}
+
+.features li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: black;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00a651;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.subscribe-btn {
+  background: #e60000;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+
+  /* Added for button alignment */
+  margin-top: auto;
+}
+
+.subscribe-btn:hover {
+  background: #b30000;
+  transform: translateY(-2px);
+}
+
+.subscribe-btn.active {
+  background: #28a745;
+}
+
+.subscribe-btn.active:hover {
+  background: #218838;
+}
+
+.subscribe-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.active-status {
+  margin-top: 15px;
+  padding: 10px;
+  background: #d4edda;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #155724;
+  text-align: center;
+  font-weight: bold;
+}
+
+.features-section {
+  margin: 4rem 0;
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 2.5rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #e60000;
+  font-weight: 600;
+}
+
+.feature-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.fix-tv-page .background {
+  background-image: url("/assets/plazh.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+

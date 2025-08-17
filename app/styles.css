@@ -6,8 +6,17 @@
 
 body {
   font-family: Arial, sans-serif;
-  color: #333;
+  color: white;
   background-color: #f5f5f5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
 }
 
 /* Layout */
@@ -17,6 +26,16 @@ body {
   flex-direction: column;
 }
 
+/* Main page specific background */
+.page.main-page {
+  background-image: url('/assets/valbona.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  color: white; 
+}
+
 .main {
   flex: 1;
   max-width: 1200px;
@@ -24,14 +43,40 @@ body {
   padding: 20px;
 }
 
-/* Header */
+/* Tourist Pack Banner - Fixed at top */
+.tourist-pack-banner {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Header - Keep dark text since it has white background */
 .header {
-  background: white;
+  text-decoration: none;
+  color: black; 
+  background:white;
   border-bottom: 1px solid #ddd;
+  cursor: default;
   padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.header a,
+.header a:hover,
+.header a:visited,
+.header a:focus,
+.header a:active {
+  text-decoration: none !important;
 }
 
 .header-content {
@@ -47,7 +92,14 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.logo:hover,
+.logo:visited,
+.logo:focus,
+.logo:active {
+  text-decoration: none !important;
 }
 
 .logo-circle {
@@ -59,7 +111,7 @@ body {
 
 .logo-text {
   font-size: 24px;
-  color: #333;
+  color: #333; 
   font-weight: normal;
 }
 
@@ -69,18 +121,38 @@ body {
 }
 
 .nav-link {
-  text-decoration: none;
-  color: #333;
+  text-decoration: none !important;
+  color: #222222; 
   padding: 10px 0;
+  border: none;
+  outline: none;
 }
 
 .nav-link:hover {
   color: #e60000;
+  text-decoration: none !important;
+}
+
+.nav-link:visited {
+  color: #333;
+  text-decoration: none !important;
+}
+
+.nav-link:focus {
+  color: #333;
+  text-decoration: none !important;
+  outline: none;
+}
+
+.nav-link:active {
+  color: #e60000;
+  text-decoration: none !important;
 }
 
 .nav-link.active {
   color: #e60000;
   font-weight: bold;
+  text-decoration: none !important;
 }
 
 .header-buttons {
@@ -94,12 +166,15 @@ body {
   font-size: 18px;
   cursor: pointer;
   padding: 8px;
+  color: #333; /* Keep dark for header */
 }
 
 .header-button:hover {
   background: #f5f5f5;
   border-radius: 4px;
 }
+
+
 
 /* Mobile Menu */
 .mobile-menu-button {
@@ -109,6 +184,7 @@ body {
   font-size: 20px;
   cursor: pointer;
   padding: 8px;
+  color: #333; /* Keep dark for header */
 }
 
 .mobile-nav {
@@ -124,22 +200,43 @@ body {
 
 .mobile-nav-link {
   display: block;
-  text-decoration: none;
-  color: #333;
+  text-decoration: none !important;
+  color: #333; /* Keep dark for mobile nav */
   padding: 15px 0;
   border-bottom: 1px solid #f0f0f0;
+  border: none;
+  outline: none;
 }
 
 .mobile-nav-link:hover {
   color: #e60000;
+  text-decoration: none !important;
 }
 
-/* Pack Cards */
+.mobile-nav-link:visited {
+  color: #333;
+  text-decoration: none !important;
+}
+
+.mobile-nav-link:focus {
+  color: #333;
+  text-decoration: none !important;
+  outline: none;
+}
+
+.mobile-nav-link:active {
+  color: #e60000;
+  text-decoration: none !important;
+}
+
+/* Pack Cards - Keep dark text since they have white background */
 .pack-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin: 30px 0;
+  max-width: 800px;
+  margin: 30px auto;
 }
 
 .pack-card {
@@ -147,6 +244,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  color: #333; /* Keep dark text for white cards */
 }
 
 .pack-card:hover {
@@ -160,12 +258,14 @@ body {
   text-align: center;
   background: #f8f9fa;
   border-bottom: 3px solid #e60000;
+  color: #333; /* Keep dark text */
 }
 
 .pack-title {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 8px;
+  color: #333; /* Keep dark text */
 }
 
 .pack-subtitle {
@@ -186,6 +286,7 @@ body {
 
 .pack-body {
   padding: 25px;
+  color: #333; /* Keep dark text */
 }
 
 .pack-features {
@@ -197,6 +298,7 @@ body {
   border-bottom: 1px solid #f0f0f0;
   display: flex;
   align-items: center;
+  color: #333; /* Keep dark text */
 }
 
 .pack-feature:last-child {
@@ -240,15 +342,17 @@ body {
 .hero {
   text-align: center;
   padding: 50px 20px;
-  background: white;
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
   border-radius: 10px;
   margin-bottom: 40px;
+  color: #333; /* Keep dark text for hero section */
 }
 
 .hero-title {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  color: #333; /* Keep dark for hero */
 }
 
 .hero-text {
@@ -262,7 +366,9 @@ body {
   text-align: center;
   font-size: 28px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  color: white; /* White text on background */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
 }
 
 .steps {
@@ -275,8 +381,9 @@ body {
 .step {
   text-align: center;
   padding: 30px 20px;
-  background: white;
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
   border-radius: 10px;
+  color: #333; /* Keep dark text for step cards */
 }
 
 .step-number {
@@ -290,6 +397,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #333; /* Keep dark text */
 }
 
 .step-text {
@@ -362,6 +470,10 @@ body {
   color: #e60000;
 }
 
+.footer-section a:visited {
+  color: #ccc;
+}
+
 .footer-bottom {
   border-top: 1px solid #333;
   padding-top: 20px;
@@ -390,6 +502,13 @@ body {
   .nav {
     display: none;
   }
+  
+  @media (max-width: 768px) {
+  .click-button {
+    font-size: 40px;
+    padding: 20px;
+  }
+}
 
   .mobile-menu-button {
     display: block;
@@ -425,4 +544,215 @@ body {
   .footer-sections {
     grid-template-columns: 1fr;
   }
+}
+
+:root {
+  /* Gradient colors (HSL values) */
+  --gradient-hero-start: 262 83% 55%;
+  --gradient-hero-end: 198 94% 60%;
+  --primary-glow: 262 83% 66%;
+
+  /* Shadows + transitions */
+  --shadow-glow: 0 10px 30px -10px hsla(262, 83%, 55%, 0.35);
+  --shadow-glow-strong: 0 20px 60px -20px hsla(262, 83%, 55%, 0.45);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  --shadow-glow: 0 10px 30px -10px hsla(198, 94%, 60%, 0.35);
+  --shadow-glow-strong: 0 20px 60px -20px hsla(198, 94%, 60%, 0.5);
+}
+
+/* Button Hero Variant */
+.btn-hero {
+  background-image: linear-gradient(135deg, 
+    hsl(var(--gradient-hero-start)), 
+    hsl(var(--gradient-hero-end))
+  );
+  box-shadow: var(--shadow-glow);
+  transition: var(--transition-smooth);
+}
+
+.btn-hero:hover {
+  filter: saturate(1.05);
+}
+
+.btn-hero:active {
+  transform: translateY(1px);
+}
+
+/* Glass Effect */
+.glass {
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0.05)
+  );
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background-image: linear-gradient(135deg, 
+    hsl(var(--gradient-hero-start)), 
+    hsl(var(--gradient-hero-end))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Aurora Container */
+.aurora-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Aurora Blobs */
+.aurora-blob {
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  min-width: 320px;
+  min-height: 320px;
+  filter: blur(60px);
+  opacity: 0.55;
+  border-radius: 9999px;
+  will-change: transform, opacity;
+}
+
+/* Shadow utilities */
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.shadow-glow-strong {
+  box-shadow: var(--shadow-glow-strong);
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-scale-in {
+    animation: none;
+  }
+  
+  .aurora-blob {
+    filter: blur(40px);
+    opacity: 0.3;
+  }
+}
+
+/* Pretty Back-to-Top */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(120% 120% at 30% 20%, #ff6b6b 0%, #e60000 60%, #b30000 100%);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.96);
+  transition:
+    transform .18s ease,
+    box-shadow .3s ease,
+    opacity .25s ease,
+    visibility .25s ease,
+    background .35s ease;
+  box-shadow:
+    0 10px 25px rgba(230,0,0,.35),
+    inset 0 -4px 8px rgba(0,0,0,.15);
+  z-index: 1500; /* above header/banner */
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 35px rgba(230,0,0,.45),
+    inset 0 -4px 8px rgba(0,0,0,.15);
+}
+
+.back-to-top:active { transform: translateY(0); }
+
+.back-to-top:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(230,0,0,.22),
+    0 12px 28px rgba(230,0,0,.4),
+    inset 0 -4px 8px rgba(0,0,0,.15);
+}
+
+/* Icon size */
+.back-to-top .icon { width: 22px; height: 22px; }
+
+/* Tiny tooltip on hover */
+.back-to-top::after {
+  position: absolute;
+  right: 62px;
+  bottom: 12px;
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  white-space: nowrap;
+}
+
+.back-to-top:hover::after { opacity: 1; transform: translateY(0); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top { transition: opacity .2s ease, visibility .2s ease; }
+  .back-to-top:hover { transform: none; }
+  .back-to-top::after { transition: opacity .2s ease; }
 }
