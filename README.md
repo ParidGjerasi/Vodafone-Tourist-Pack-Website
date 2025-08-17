@@ -17,5 +17,10 @@ npm install
 npm run dev
 # open http://localhost:3000/
 
+## Backend (Spring Boot)
+```bash
+cd backend
+.\mvnw.cmd spring-boot:run   # http://localhost:8080
+
 ## License
 This repo is public for portfolio viewing only. See LICENSE.
