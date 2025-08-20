@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8080";
-
 export default function PacketList() {
   const [packets, setPackets] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,12 +15,11 @@ export default function PacketList() {
   // load packets on mount
   useEffect(() => {
     const ac = new AbortController();
-    fetch(`${API}/api/packets`, { signal: ac.signal })
+    fetch("/api/packets", { signal: ac.signal, cache: "no-store" })
       .then((r) => {
         if (!r.ok) throw new Error("Failed to fetch packets");
         return r.json();
       })
-      
       .then((packetsData) => {
         const sorted = packetsData.slice().sort((a, b) => Number(a.price) - Number(b.price));
         setPackets(sorted);
@@ -38,7 +35,7 @@ export default function PacketList() {
   }, []);
 
   const fetchPackets = () => {
-    fetch(`${API}/api/packets`)
+    fetch("/api/packets", { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("Network response not ok");
         return res.json();
@@ -47,7 +44,7 @@ export default function PacketList() {
         const sorted = data.slice().sort((a, b) => Number(a.price) - Number(b.price));
         setPackets(sorted);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(err.message || "Load failed"));
   };
 
   const validateForm = () => {
@@ -65,13 +62,13 @@ export default function PacketList() {
   // If active -> toggle deactivate (no body)
   // If not active -> open modal to collect details and POST /api/activations
   const toggleActivation = (packet) => {
-    
     if (packet.isActive) {
       setSubmitting(true);
-      fetch(`${API}/api/packets/${packet.id}/activate`, { method: "POST" })
+      // Use the proxy shim: POST /api/packets/:id/toggle
+      fetch(`/api/packets/${packet.id}/toggle`, { method: "POST" })
         .then((res) => {
           if (!res.ok) throw new Error("Failed to deactivate packet");
-          return res.json();
+          return res.json().catch(() => ({}));
         })
         .then(() => fetchPackets())
         .catch((err) => {
@@ -102,18 +99,21 @@ export default function PacketList() {
       },
     };
 
-    fetch(`${API}/api/activations`, {
+    fetch("/api/activations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(activationData),
     })
-      .then((res) => {
+      .then(async (res) => {
         if (!res.ok) {
-          return res.json().then((errorData) => {
-            throw new Error(errorData.message || "Failed to activate packet");
-          });
+          let msg = "Failed to activate packet";
+          try {
+            const errorData = await res.json();
+            msg = errorData?.message || msg;
+          } catch {}
+          throw new Error(msg);
         }
-        return res.json();
+        return res.json().catch(() => ({}));
       })
       .then(() => {
         fetchPackets();
@@ -163,7 +163,6 @@ export default function PacketList() {
 
   return (
     <>
-      
       <div className="title-bar">
         <h1 className="hero-title">Vodafone Tourist Packs</h1>
       </div>
@@ -300,7 +299,6 @@ export default function PacketList() {
           </div>
         </div>
       )}
-
       {/* Styles */}
       <style jsx>{`
         /* Centered red title bar that is NOT fixed */
